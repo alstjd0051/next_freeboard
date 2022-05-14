@@ -1,16 +1,10 @@
-import { connect } from "react-redux";
-import TodoList from "../todolist/index";
+import TodoList from "../todolist/todoList";
+import { useSelector } from "react-redux";
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos,
-  };
-};
+function TodoListContainer() {
+  const todos = useSelector((state) => state.todos);
 
-const mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
+  return <TodoList todos={todos} />;
+}
 
 export default TodoListContainer;

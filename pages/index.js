@@ -3,8 +3,8 @@ import "../styles/Home.module.css";
 import { addTodo } from "../src/redux/actions";
 import styles from "../styles/Home.module.css";
 import useReduxDispatch from "../src/redux/hook/useReduxDispatch";
-import TodoList from "../src/components/todolist";
-import TodoForm from "../src/components/todolist/TodoForm";
+import TodoListContainer from "../src/components/containers/TodoListContainer";
+import TodoFormContainer from "../src/components/containers/TodoFormContainer";
 
 export default function Home() {
   return (
@@ -15,8 +15,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <TodoList />
-        <TodoForm />
+        <TodoListContainer />
+        <TodoFormContainer />
       </main>
     </div>
   );
