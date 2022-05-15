@@ -1,8 +1,8 @@
 export default function TodoList({ todos }) {
   return (
     <ul>
-      {todos.map((todo) => {
-        return <li key="todo">{todo.text}</li>;
+      {todos.map((todo, index) => {
+        return <li key={index}>{todo.text}</li>;
       })}
     </ul>
   );

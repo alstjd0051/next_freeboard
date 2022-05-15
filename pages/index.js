@@ -1,12 +1,16 @@
 import Head from "next/head";
 import "../styles/Home.module.css";
-import { addTodo } from "../src/redux/actions";
 import styles from "../styles/Home.module.css";
-import useReduxDispatch from "../src/redux/hook/useReduxDispatch";
-import TodoListContainer from "../src/components/containers/TodoListContainer";
-import TodoFormContainer from "../src/components/containers/TodoFormContainer";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+  function MoveTodoList() {
+    router.push("/todolist");
+  }
+  function MoveUserList() {
+    router.push("/userlist");
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -15,8 +19,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <TodoListContainer />
-        <TodoFormContainer />
+        <button onClick={MoveTodoList}>TodoListPage이동</button>
+        <button onClick={MoveUserList}>UserlistPage이동</button>
       </main>
     </div>
   );

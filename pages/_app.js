@@ -13,13 +13,13 @@ import { Provider } from "react-redux";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Header />
-      <Provider store={store}>
+    <Provider store={store}>
+      <>
+        <Header />
         <Component {...pageProps} />
-      </Provider>
-      <Footer />
-    </>
+        <Footer />
+      </>
+    </Provider>
   );
 }
 

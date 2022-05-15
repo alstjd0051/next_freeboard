@@ -1,8 +1,11 @@
 import React from "react";
-import HeaderUI from "./Header.container";
 
-const Header = () => {
-  return <HeaderUI />;
+const HeaderUI = () => {
+  return (
+    <div>
+      <h1>Header</h1>
+    </div>
+  );
 };
 
-export default Header;
+export default HeaderUI;

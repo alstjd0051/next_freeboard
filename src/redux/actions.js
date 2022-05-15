@@ -26,3 +26,23 @@ export function showAll() {
 export function showComplete() {
   return { type: SHOW_COMPLETE };
 }
+
+//users
+// 깃헙 API 호출을 시작하는 것을 의미
+export const GET_USERS_STATR = "GET_USERS_STATR";
+
+// 깃헙 API 호출에 대한 응답이 성공적으로 돌아온 경우
+export const GET_USERS_SUCCESS = "GET_USERS_SUCCESS";
+
+// 깃헙 API 호출에 대한 응답이 실퍄한경우
+export const GET_USERS_FAIL = "GET_USERS_FAIL";
+
+export function getUsersStart() {
+  return { type: GET_USERS_STATR };
+}
+export function getUsersSuccess(data) {
+  return { type: GET_USERS_SUCCESS };
+}
+export function getUsersFail(error) {
+  return { type: GET_USERS_FAIL };
+}

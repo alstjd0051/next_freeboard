@@ -1,11 +1,8 @@
 import React from "react";
+import HeaderUI from "./Header.presenter";
 
-const HeaderUI = () => {
-  return (
-    <div>
-      <h1>Header</h1>
-    </div>
-  );
+const Header = () => {
+  return <HeaderUI />;
 };
 
-export default HeaderUI;
+export default Header;
