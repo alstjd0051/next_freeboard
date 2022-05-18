@@ -1,8 +1,12 @@
-import Footer from "../src/components/layout/footer/Footer.container";
 import Header from "../src/components/layout/header/Header.container";
 import "../styles/globals.css";
 import store from "../src/redux/store";
 import { Provider } from "react-redux";
+import { Center, ChakraProvider, Spinner } from "@chakra-ui/react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../src/lib/firebase";
+import LoginPage from "./login";
+import SideBarUI from "../src/components/layout/sidebar/Sidebar.presenter";
 
 // store.subscribe(() => {
 // });
@@ -12,14 +16,32 @@ import { Provider } from "react-redux";
 // store.dispatch(showComplete());
 
 function MyApp({ Component, pageProps }) {
+  const [user, loading, error] = useAuthState(auth);
+
+  if (loading) {
+    return (
+      <ChakraProvider>
+        <Center h="100vh">
+          <Spinner size="xl" />
+        </Center>
+      </ChakraProvider>
+    );
+  }
+
+  if (!user) {
+    <ChakraProvider>
+      <LoginPage />;
+    </ChakraProvider>;
+  }
+
   return (
-    <Provider store={store}>
-      <>
+    <>
+      <ChakraProvider>
         <Header />
+        <SideBarUI />
         <Component {...pageProps} />
-        <Footer />
-      </>
-    </Provider>
+      </ChakraProvider>
+    </>
   );
 }
 

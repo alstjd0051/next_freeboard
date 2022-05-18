@@ -1,5 +1,5 @@
 import React from "react";
-import { GET_USERS_FAIL, GET_USERS_STATR, GET_USERS_SUCCESS } from "../actions";
+import { GET_USERS_FAIL, GET_USERS_FULFILLE, GET_USERS_PENDING, GET_USERS_STATR, GET_USERS_SUCCESS } from "../actions";
 
 const initialState = {
   loading: false,
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export default function users(state = initialState, action) {
-  if (action.type === GET_USERS_STATR) {
+  if (action.type === GET_USERS_STATR || action.type === GET_USERS_PENDING) {
     return {
       ...state,
       loading: true,
@@ -16,7 +16,7 @@ export default function users(state = initialState, action) {
     };
   }
 
-  if (action.type === GET_USERS_SUCCESS) {
+  if (action.type === GET_USERS_FULFILLE) {
     return {
       ...state,
       loading: false,
