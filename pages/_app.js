@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }) {
       <ChakraProvider>
         <Center h="100vh">
           <Spinner size="xl" />
+          <SideBarUI />
         </Center>
       </ChakraProvider>
     );
